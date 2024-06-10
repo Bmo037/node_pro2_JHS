@@ -8,8 +8,8 @@ RUN apt -y update && apt -y upgrade && apt -y install git net-tools vim
 WORKDIR '/root/Project_2-one'
 
 # 의존성 설치
-RUN git clone https://github.com/Bmo037/node_pro2_JHS.git && \
-    cd /root/Project_2-one/node_pro2_JHS
+RUN git clone https://github.com/Bmo037/node_pro2_JHS.git
+WORKDIR '/root/Project_2-one/node_pro2_JHS'
 RUN npm install
 RUN npm install -g nodemon
 

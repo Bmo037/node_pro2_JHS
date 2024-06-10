@@ -17,6 +17,8 @@ const ID = process.env.ID;
 const SECRET = process.env.SECRET;
 const BUCKET_NAME = 'kibwa-18';
 const MYREGION = 'ap-northeast-2';
+const FAST = process.env.FAST_API;
+
 const s3 = new AWS.S3({
     accessKeyId: ID,
     secretAccessKey: SECRET,
@@ -127,7 +129,7 @@ router.post('/deleteFile', function (req, res) {
 router.post('/processVideo', async function (req, res) {
     var filename = req.body.dlKey;
     try {
-        const response = await axios.get('http://localhost:3500/process_video', {
+        const response = await axios.get(`${FAST}/process_video`, {
             params: {
                 video_key: filename
             }
